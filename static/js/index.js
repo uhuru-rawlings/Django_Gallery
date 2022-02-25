@@ -3,7 +3,11 @@ const showModels = (clicked_id) =>{
 }
 
 const closeModels = () =>{
-    document.getElementsByClassName("models").style.display = "none";
+    let array = document.getElementsByClassName("models");
+    for(let i = 0; i <array.length; i++){
+       array[i].style.display = "none";
+    }
+
 }
 
 const Indicator = () =>{
