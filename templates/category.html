@@ -26,15 +26,18 @@
     <div class="images">
       <img src="../media/{{file.images}}" height="200px" id="{{file.location_take}}{{file.id}}" onclick="showModels(this.id)" width="200px" alt="">
     </div>
-    <div class="models {{file.location_take}}{{file.id}}">
-      <div class="close_model"><i class="fa-solid fa-xmark" onclick="closeModels()"></i></div>
-      <img src="../media/{{file.images}}" height="200px" width="200px" alt="">
-      <div class="desc">
-        <div class="image_details"><h5>{{file.image_name}}</h5></div>
-        <div class="image_details">{{file.image_description}}</div>
-        <div class="image_details"><p><span style="font-weight: bold;">Location:</span> {{ file.location_take }}</p></div>
-        <div class="image_details"><p><span style="font-weight: bold;">Category:</span> {{ file.image_category }}</p></div>
-       </div>
+  </div>
+  <!-- model -->
+  <div class="models {{file.location_take}}{{file.id}}">
+    <div class="subb_models">
+          <div class="close_model"><i class="fa-solid fa-xmark" onclick="closeModels()"></i></div>
+          <img src="../media/{{file.images}}" height="200px" width="200px" alt="">
+          <div class="desc">
+            <div class="image_details"><h5>{{file.image_name}}</h5></div>
+            <div class="image_details">{{file.image_description}}</div>
+            <div class="image_details"><p><span style="font-weight: bold;">Location:</span> {{ file.location_take }}</p></div>
+            <div class="image_details"><p><span style="font-weight: bold;">Category:</span> {{ file.image_category }}</p></div>
+          </div>
     </div>
   </div>
     <!-- <div  data-bs-toggle="modal" data-bs-target="#exampleModal">
