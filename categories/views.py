@@ -16,15 +16,16 @@ def categories_view(request):
 def get_search(request):
     if request.method == 'POST':
         searchItems = request.POST['searchItems']
-        categ_id = Category.objects.get(categories = searchItems)
-        if categ_id:
+        categ_id = Category.objects.filter(categories = searchItems)
+        if categ_id.exists():
+             categ_id = Category.objects.get(categories = searchItems)
              single_img = Images.objects.filter(image_category_id = categ_id.id)
         else:
             message_error = "Sorry this category do not exist"
             return redirect("/category/")
         
     contex = {
-        "search": single_img,
+        # "search": single_img,
         "single_img":single_img
     }
 

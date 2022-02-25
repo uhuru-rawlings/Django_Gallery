@@ -152,3 +152,8 @@
     right: 20px;
     top: 20px;
 }
+#filees_contents{
+    display: flex;
+    column-gap: 20px;
+    flex-wrap: wrap;
+}
