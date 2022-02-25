@@ -11,10 +11,6 @@
 
 {% block body %}
 <div class="search_category">
-  {% if single_img %}
-  <div class="text-danger">{{ single_img }}</div>
-  {% else %}
-  {% endif %}
   <form action="{% url 'search' %}" method="post" id="searchforms">{% csrf_token %}
     <div class="form-group">
        <input type="text" name="searchItems" required id="searchItems" class="form-control" placeholder="Enter Category">
