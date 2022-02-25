@@ -28,15 +28,17 @@
     </div>
   </div>
   <!-- model -->
-  <div class="models {{file.location_take}}{{file.id}}">
+  <div class="models {{file.location_take}}{{file.id}}" ondblclick="closeModelsD()">
     <div class="subb_models">
-          <div class="close_model"><i class="fa-solid fa-xmark" onclick="closeModels()"></i></div>
+          <div class="model-header">
+            <div class="close_model"><i class="fa-solid fa-xmark" onclick="closeModels()"></i></div>
+            <div class="image_details"><h5>{{file.image_name}}</h5></div>
+          </div>
           <img src="../media/{{file.images}}" height="250px" width="100%" alt="">
           <div class="desc">
-            <div class="image_details"><h5>{{file.image_name}}</h5></div>
             <div class="image_details">{{file.image_description}}</div>
-            <div class="image_details"><p><span style="font-weight: bold;">Location:</span> {{ file.location_take }}</p></div>
-            <div class="image_details"><p><span style="font-weight: bold;">Category:</span> {{ file.image_category }}</p></div>
+            <div class="image_details"><div><span style="font-weight: bold;">Location:</span> {{ file.location_take }}</div></div>
+            <div class="image_details"><div><span style="font-weight: bold;">Category:</span> {{ file.image_category }}</div></div>
           </div>
     </div>
   </div>
