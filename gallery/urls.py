@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name = "Home"),
     path('category/', categories_view, name = "category"),
-    path('search/<int:image_id>', get_search, name = "search"),
+    path('search/', get_search, name = "search"),
     path('uploaded/', images_view, name = "uploaded"),
     path('addcategory/', addcategory_view, name = "addcategory"),
     path('location/', location_view, name = "locations"),

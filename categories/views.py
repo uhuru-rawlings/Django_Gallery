@@ -6,21 +6,26 @@ import pyperclip
 # Create your views here.
 def categories_view(request):
     files = Images.objects.all()
-    # contex = {
-    #     # "title":"Category Page | Gallery",
-    #     "files":files
-    # }
-    return render(request, "category.html", {"files":files})
+    contex = {
+        "title":"Category Page | Gallery",
+        "files":files
+    }
+    return render(request, "category.html", contex)
 
 
-def get_search(request,image_id):
-    single_img = Images.objects.get(id = image_id)
-    get_lication = Location.objects.get(id = single_img.id)
-    get_category = lication = Category.objects.get(id = single_img.id)
+def get_search(request):
+    if request.method == 'POST':
+        searchItems = request.POST['searchItems']
+        categ_id = Category.objects.get(categories = searchItems)
+        if categ_id:
+             single_img = Images.objects.filter(image_category_id = categ_id.id)
+        else:
+            message_error = "Sorry this category do not exist"
+            return redirect("/category/")
+        
     contex = {
         "search": single_img,
-        "get_lication": get_lication,
-        "get_category": get_category,
+        "single_img":single_img
     }
 
 

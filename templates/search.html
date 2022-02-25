@@ -11,26 +11,24 @@
 
 {% block body %}
 <div class="filees_contents">
-
+ {% for single_img in single_img %}
     <div class="card" style="position: relative;">
       <div class="card-body">
        <div id="flex_images">
          <div class="image_models">
-           <img src="../media/{{search.images}}" height="400px" width="100%" alt="">
+           <img src="../media/{{single_img.images}}" height="400px" width="100%" alt="">
          </div>
         <div class="desc">
-         <div class="image_details"><h5 style="font-weight: bold; text-decoration: underline;">{{search.image_name}}</h5></div>
+         <div class="image_details"><h5 style="font-weight: bold; text-decoration: underline;">{{single_img.image_name}}</h5></div>
          <div class="image_details">{{search.image_description}}</div>
-         <div class="image_details"><span style="font-weight: bold;">Location: </span>{{get_lication.locations}}</div>
-         <div class="image_details"><span style="font-weight: bold;">Category: </span>{{get_category.categories}}</div>
+         <div class="image_details"><span style="font-weight: bold;">Location: </span>{{ single_img.location_take }}</div>
+         <div class="image_details"><span style="font-weight: bold;">Category: </span>{{ single_img.image_category }}</div>
          <div class="copyimages">
-             <form action="{% url 'copypaste' search.id %}" method="post">{% csrf_token %}
-                <button title="copy"><i class="fa-solid fa-copy"></i></button>
-             </form>
          </div>
         </div>
         </div>
       </div>
    </div>
+   {% endfor %}
 </div>
 {% endblock %}

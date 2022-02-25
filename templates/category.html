@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-  <!-- {{ title }} -->
+  {{ title }}
 {% endblock %}
 
 {% block navbar %} 
@@ -11,7 +11,11 @@
 
 {% block body %}
 <div class="search_category">
-  <form action="" method="post" id="searchforms">
+  {% if single_img %}
+  <div class="text-danger">{{ single_img }}</div>
+  {% else %}
+  {% endif %}
+  <form action="{% url 'search' %}" method="post" id="searchforms">{% csrf_token %}
     <div class="form-group">
        <input type="text" name="searchItems" required id="searchItems" class="form-control" placeholder="Enter Category">
     </div>
@@ -22,30 +26,29 @@
 </div>
 <div class="filees_contents">
   {% for file in files %}
-<div type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-  <img src="{{file.images.url}}" height="200px" width="200px" alt="">
-</div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{file.image_name}}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <img src="{{file.images.url}}" height="200px" width="200px" alt="">
-        <br>
-        {{file.image_description}}
-        <div class="image_details"><h5>{{file.location_take}}</h5></div>
-        <div class="image_details">{{file.image_category}}</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <div  data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <img src="{{file.images.url}}" height="200px" width="200px" alt="">
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{file.image_name}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <img src="{{ file.images.url }}" height="200px" width="100%" alt="">
+            <br>
+            {{file.image_description}}
+            <div class="image_details"><h5>{{ file.location_take }}</h5></div>
+            <div class="image_details">{{ file.image_category }}</div>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
- 
   {% endfor %}
 </div>
 {% endblock %}
