@@ -23,7 +23,7 @@
 <div class="filees_contents">
   {% for file in files %}
 <div type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-  <img src="../media/{{file.images}}" height="200px" width="200px" alt="">
+  <img src="{{file.images.url}}" height="200px" width="200px" alt="">
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
