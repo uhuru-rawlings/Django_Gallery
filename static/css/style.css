@@ -157,3 +157,6 @@
     column-gap: 20px;
     flex-wrap: wrap;
 }
+.card .models{
+    display: none;
+}

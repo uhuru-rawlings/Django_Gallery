@@ -22,7 +22,22 @@
 </div>
 <div class="filees_contents" id="filees_contents">
   {% for file in files %}
-    <div  data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <div class="card">
+    <div class="images">
+      <img src="../media/{{file.images}}" height="200px" id="{{file.location_take}}{{file.id}}" onclick="showModels(this.id)" width="200px" alt="">
+    </div>
+    <div class="models {{file.location_take}}{{file.id}}">
+      <div class="close_model"><i class="fa-solid fa-xmark" onclick="closeModels()"></i></div>
+      <img src="../media/{{file.images}}" height="200px" width="200px" alt="">
+      <div class="desc">
+        <div class="image_details"><h5>{{file.image_name}}</h5></div>
+        <div class="image_details">{{file.image_description}}</div>
+        <div class="image_details"><p><span style="font-weight: bold;">Location:</span> {{ file.location_take }}</p></div>
+        <div class="image_details"><p><span style="font-weight: bold;">Category:</span> {{ file.image_category }}</p></div>
+       </div>
+    </div>
+  </div>
+    <!-- <div  data-bs-toggle="modal" data-bs-target="#exampleModal">
       <img src="{{file.images.url}}" height="200px" width="200px" alt="">
     </div>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -41,12 +56,23 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   {% endfor %}
 </div>
 {% endblock %}
-
- <!-- <a href="{% url 'search' file.id %}">
+<!-- {% for file in files %}
+<div class="card">
+  <div class="images">
+    <img src="../media/{{file.images}}" height="200px" width="200px" alt="">
+  </div>
+  <div class="models">
+    <img src="../media/{{file.images}}" height="200px" width="200px" alt="">
+    <div class="desc">
+      <div class="image_details"><h5>{{file.image_name}}</h5></div>
+      <div class="image_details">{{file.image_description}}</div>
+     </div>
+  </div>
+</div>
     <div class="card">
       <div class="card-body">
        <div id="flex_images">
@@ -60,4 +86,4 @@
         </div>
       </div>
    </div>
-  </a> -->
+  {% endfor %} -->
