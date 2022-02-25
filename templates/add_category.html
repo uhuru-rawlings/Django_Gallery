@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block navbar %} 
+<div class="category_navbar">
+  {% include 'navbar.html' %}
+</div>
+{% endblock %}
+
+{% block body %}
+  <div class="add_category_form">
+    <h3 class="text-center">Add Categories</h3>
+    <form action="{% url 'addcategory' %}" method="post">{% csrf_token %}
+          <div class="form-group">
+            <input type="text" name="image_category" autocomplete="off" id="image_category" class="form-control" placeholder="Enter image category">
+          </div>
+          <div class="form-group">
+           <input type="submit" value="Add Category" class="btn btn-secondary">
+          </div>
+    </form>
+  </div>
+  <div class="current_categories">
+    <h3>Categories</h3>
+    {% for category in all_cats %}
+      <div class="card">
+          <div class="card-body">
+            <div class="cats">{{ category.categories }}</div>
+            <div class="time_added">
+              <div class="dates">{{ category.date_added }}</div>
+               <div class="trash_can">
+                 <form action="{% url 'delete_category' category.id %}" method="post">{% csrf_token %}
+                   <button><i class="fa-solid fa-trash-can"></i></button>
+                 </form>
+                </div> 
+            </div>
+          </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

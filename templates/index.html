@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block body %} 
+<div class="home_view">
+  <div class="sub_home_view">
+    {% include 'navbar.html' %}
+    <div class="home_text">
+      <h1>Welcome to Rawlings Gallery,  What <br> words can't explain, illuestrations will.</h1>
+      <p>Pictures are the bast storage of good moments.</p>
+      <div class="drop_down" id="indicator">
+        <i class="fa-solid fa-circle-chevron-down"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="aboutme">
+  <div class="about">
+    <h1>About Me</h1>
+    <p>I am Uhuru Otieno Rawlings am a fullstack Web developer,
+       I have experience working with html, css, jquery, javascript,
+        Angular and Django. I can build you project from scratch to completion. 
+        
+        I can perform migrations for new database or upgrade databases.
+         If you have some related job or know anyone looking for such, feel
+        free to contact me,
+    </p>
+  </div>
+  <div class="blanks"></div>
+  <div class="hobbies">
+    <h1>Hobbies</h1>
+    <p>I like playing football, i love going for long rides, cooking is also one thing i do better.</p>
+  </div>
+</div>
+<div class="static_images">
+  <div class="image_card">
+    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" height="200px" width="200px" alt="house images">
+    <p>Swimming Pool image</p>
+  </div>
+  <div class="image_card">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" height="200px" width="200px" alt="house images">
+    <p>Evening View of the house</p>
+  </div>
+  <div class="image_card">
+    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8aG91c2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" height="200px" width="200px" alt="house images">
+    <p>Distant view of the house</p>
+  </div>
+  <div class="image_card">
+    <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8aG91c2V8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" height="200px" width="200px" alt="house images">
+    <p>House interior view.</p>
+  </div>
+</div>
+{% endblock %}

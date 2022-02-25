@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}
+  {{ title }}
+{% endblock %}
+
+{% block navbar %} 
+<div class="category_navbar">
+  {% include 'navbar.html' %}
+</div>
+{% endblock %}
+
+{% block body %} 
+<div class="upload_forms">
+  <h3 class="text-center">Upload Images</h3>
+  <form action="{% url 'uploaded' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
+   <div class="form-group">
+    {% if locat %}
+    {% else %}
+    <p class="text-danger text-center">Please add location.</p>
+    {% endif %}
+    <select name="location_take" id="location_take" class="form-control" required>
+          {% if locat %}
+             {% for locat in locat %}
+               <option value="{{locat.locations}}">{{locat.locations}} </option>
+             {% endfor %}
+          {% else %}
+            <option value="">-- Select Category -- </option>
+          {% endif %}
+    </select>
+   <div class="form-group">
+     <input type="file" name="image_file" id="image_file" class="form-control">
+   </div>
+   <div class="form-group">
+    {% if categs %}
+    {% else %}
+    <p class="text-danger text-center">Please add category.</p>
+    {% endif %}
+    <select name="categories" id="categories" class="form-control" required>
+          {% if categs %}
+             {% for categ in categs %}
+               <option value="{{categ.categories}}">{{categ.categories}} </option>
+             {% endfor %}
+          {% else %}
+            <option value="">-- Select Category -- </option>
+          {% endif %}
+    </select>
+   </div>
+   <div class="form-group">
+     <textarea name="image_description" id="image_description" cols="30" rows="10" placeholder="Image description text here" class="form-control"></textarea>
+   </div>
+   <div class="form-group">
+     <input type="submit" value="Add Image" class="btn btn-secondary">
+   </div>
+  </form>
+</div>
+{% endblock %}
