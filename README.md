@@ -6,3 +6,5 @@ This is a django application that allows user to upload images and view images w
 1). View different photos that interest me.
 2). Click on a single photo to expand it and also view the details of the photo. The photo details must appear on a modal within the same route as the main page.
 3). Search for different categories of photos. (ie. Travel, Food)
+4). Copy a link to the photo to share with my friends.
+5). View photos based on the location they were taken.
