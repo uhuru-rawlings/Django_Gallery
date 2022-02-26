@@ -41,3 +41,12 @@ class Images(models.Model):
 
     def save_editor(self):
         self.save()
+
+
+
+# save_image() - Save an image to the database.
+# delete_image() - Delete image from the database.
+# update_image() - Update image in the database.
+# get_image_by_id(id) - Allows us to get an image using its ID.
+# search_image(category) - Allows us to search for an image using its category.
+# filter_by_location(location) - Allows us to filter images by the location.
