@@ -39,8 +39,23 @@ class Images(models.Model):
         db_table = 'Images'
 
 
-    def save_editor(self):
+    def save_image(self):
         self.save()
+    def delete_image(self, id):
+        self.objects.delete(id = id)
+
+    def update_image(self, id):
+        updates = "news_image"
+        self.objects.filter(id = id).update(image = updates)
+
+    def get_image_by_id(self, ids):
+        self.objects.filter(id = ids)
+
+    def search_image(self, category):
+        self.objects.filter(categories = category)
+
+    def filter_by_location(self, location):
+        self.objects.filter(locations = location)
 
 
 
