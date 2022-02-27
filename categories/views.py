@@ -17,9 +17,13 @@ def get_search(request):
     if request.method == 'POST':
         searchItems = request.POST['searchItems']
         categ_id = Category.objects.filter(categories = searchItems)
+        locat_id = Location.objects.filter(locations = searchItems)
         if categ_id.exists():
              categ_id = Category.objects.get(categories = searchItems)
              single_img = Images.objects.filter(image_category_id = categ_id.id)
+        elif locat_id.exists():
+            categ_id = Location.objects.get(locations = searchItems)
+            single_img = Images.objects.filter(location_take_id = categ_id.id)
         else:
             message_error = "Sorry this category do not exist"
             return redirect("/category/")
